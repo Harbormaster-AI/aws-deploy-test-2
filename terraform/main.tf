@@ -12,7 +12,7 @@ provider "aws" {
       CreatedBy = "Harbormaster"
       Blueprint = "Spring Boot 3.5"
       DomainModel = "Banking Industry Domain Model"
-      CertificationId = "d8f4730b-e463-4b02-a704-7dce0b17b950"
+      CertificationId = "62c513a1-fa1e-42c2-bc99-70d8bb20b17f"
     }
   }
 }
@@ -39,7 +39,7 @@ resource "local_file" "private_key_pem" {
 }
 
 resource "aws_key_pair" "generated" {
-  key_name   = "pjsk-sshtest-0.784223012402987"
+  key_name   = "pjsk-sshtest-0.1419967550324167"
   public_key = tls_private_key.generated.public_key_openssh
 
   lifecycle {
@@ -163,7 +163,7 @@ resource "aws_instance" "web" {
   # -------------------------------------------------------
   # standard harbormaster community AMI with docker pre-installed
   # -------------------------------------------------------
-  ami = "null"
+  ami = "resolve:ssm:/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64"
 
   # -------------------------------------------------------
   # The name of the  SSH keypair you've created and downloaded

@@ -14,7 +14,20 @@ resource "kubernetes_service" "app-master" {
       target_port = 8080
     }
 
-#Expose_K8_Ports()
+
+    port {
+      name        = "db-port"
+      port        = 3306
+      target_port = 3306
+    }
+
+
+    port {
+        port        = 8080
+        target_port = 8080
+        name        = "app-port"
+    }
+
 
     type = "LoadBalancer"
   }

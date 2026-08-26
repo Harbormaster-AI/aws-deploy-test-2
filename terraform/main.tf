@@ -12,7 +12,7 @@ provider "aws" {
       CreatedBy = "Harbormaster"
       Blueprint = "Spring Boot 3.5"
       DomainModel = "Banking Industry Domain Model"
-      CertificationId = "62c513a1-fa1e-42c2-bc99-70d8bb20b17f"
+      CertificationId = "3c1ba7e9-2e63-44ec-85c8-b509a628a437"
     }
   }
 }
@@ -39,7 +39,7 @@ resource "local_file" "private_key_pem" {
 }
 
 resource "aws_key_pair" "generated" {
-  key_name   = "pjsk-sshtest-0.1419967550324167"
+  key_name   = "pjsk-sshtest-0.5028299635979673"
   public_key = tls_private_key.generated.public_key_openssh
 
   lifecycle {
@@ -129,7 +129,6 @@ resource "aws_db_instance" "default" {
 #  identifier             = "bankingbackend-rds" # Terraform will create a unique id if not assigned
   allocated_storage      = 20
   engine                 = "mysql"
-  engine_version         = "null"
   instance_class         = "db.t3.medium"
   db_name                = "bankingbackend"
   username               = "no_user_name"
